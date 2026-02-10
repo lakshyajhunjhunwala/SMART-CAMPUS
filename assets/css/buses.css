@@ -1,0 +1,100 @@
+/* Buses Page Styles */
+.filter-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filter-section input,
+.filter-section select {
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+.buses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.bus-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-left: 5px solid #764ba2;
+}
+
+.bus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.bus-card h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.bus-info {
+    margin-bottom: 1rem;
+}
+
+.bus-info label {
+    font-weight: bold;
+    color: #764ba2;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.bus-info p {
+    color: #666;
+    margin: 0.2rem 0;
+}
+
+.container h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.filter-section input {
+    background: white;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .buses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        flex-direction: column;
+    }
+
+    .filter-section input {
+        width: 100%;
+    }
+}

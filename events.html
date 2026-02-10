@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Smart Campus</title>
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/events.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <a class="skip-link" href="#maincontent">Skip to content</a>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">📚</span> Smart Campus
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="events.html" class="nav-link active">Events</a></li>
+                <li><a href="buses.html" class="nav-link">Buses</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li id="adminLink" style="display:none;"><a href="admin.html" class="nav-link">Admin</a></li>
+                <li id="authBtn"><button class="auth-btn" onclick="openLoginModal()">Login</button></li>
+                <li id="logoutBtn" style="display:none;"><button class="auth-btn logout" onclick="logout()">Logout</button></li>
+            </ul>
+            <button class="hamburger" id="hambtn" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu()">
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="maincontent"></div>
+        <h1>🎉 Campus Events</h1>
+        
+        <!-- Category Filter -->
+        <div class="filter-section">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" onchange="filterEvents()">
+                <option value="all">All Categories</option>
+                <option value="exam">Exam</option>
+                <option value="workshop">Workshop</option>
+                <option value="seminar">Seminar</option>
+                <option value="competition">Competition</option>
+                <option value="cultural">Cultural</option>
+                <option value="sports">Sports</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <!-- Events Grid -->
+        <div class="events-grid" id="eventsGrid">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer boxed-footer" role="contentinfo" aria-label="Footer">
+        <p>&copy; 2026 Smart Campus Assistant. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/events.js"></script>
+</body>
+</html>

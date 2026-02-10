@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Smart Campus</title>
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <a class="skip-link" href="#maincontent">Skip to content</a>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">📚</span> Smart Campus
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="buses.html" class="nav-link">Buses</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li id="adminLink" style="display:none;"><a href="admin.html" class="nav-link active">Admin</a></li>
+                <li id="authBtn"><button class="auth-btn" onclick="openLoginModal()">Login</button></li>
+                <li id="logoutBtn" style="display:none;"><button class="auth-btn logout" onclick="logout()">Logout</button></li>
+            </ul>
+            <button class="hamburger" id="hambtn" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu()">
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="maincontent"></div>
+        <h1>⚙️ Admin Panel</h1>
+        
+        <div class="admin-notice">
+            <h3>Admin Features</h3>
+            <p>The admin panel allows you to manage:</p>
+            <ul>
+                <li>📢 Announcements</li>
+                <li>📅 Class Schedules</li>
+                <li>🎉 Campus Events</li>
+                <li>🚌 Bus Information</li>
+            </ul>
+            <p style="margin-top: 20px; color: #666;">
+                <strong>Note:</strong> This is currently a frontend-only version with mock data. 
+                Data is stored in browser localStorage.
+            </p>
+        </div>
+
+        <!-- Admin Tabs -->
+        <div class="admin-tabs">
+            <button class="tab-button active" onclick="switchTab('announcements')">Announcements</button>
+            <button class="tab-button" onclick="switchTab('schedule')">Schedule</button>
+            <button class="tab-button" onclick="switchTab('events')">Events</button>
+            <button class="tab-button" onclick="switchTab('buses')">Buses</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="admin-content">
+            <div id="announcementsTab" class="tab-content active">
+                <h2>Add Announcement</h2>
+                <form onsubmit="addAnnouncement(event)">
+                    <input type="text" id="annTitle" placeholder="Title" required>
+                    <textarea id="annContent" placeholder="Content" required></textarea>
+                    <select id="annPriority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                    <button type="submit">Add Announcement</button>
+                </form>
+            </div>
+
+            <div id="scheduleTab" class="tab-content">
+                <h2>Add Schedule</h2>
+                <form onsubmit="addSchedule(event)">
+                    <input type="text" id="schedCourse" placeholder="Course Name" required>
+                    <input type="text" id="schedCode" placeholder="Course Code" required>
+                    <select id="schedDay" required>
+                        <option value="">Select Day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                    <input type="time" id="schedTime" required>
+                    <input type="text" id="schedInstructor" placeholder="Instructor Name" required>
+                    <button type="submit">Add Schedule</button>
+                </form>
+            </div>
+
+            <div id="eventsTab" class="tab-content">
+                <h2>Add Event</h2>
+                <form onsubmit="addEvent(event)">
+                    <input type="text" id="evtTitle" placeholder="Event Title" required>
+                    <textarea id="evtDesc" placeholder="Description"></textarea>
+                    <select id="evtCategory">
+                        <option value="other">Other</option>
+                        <option value="exam">Exam</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="seminar">Seminar</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                    <input type="datetime-local" id="evtDate" required>
+                    <button type="submit">Add Event</button>
+                </form>
+            </div>
+
+            <div id="busesTab" class="tab-content">
+                <h2>Add Bus</h2>
+                <form onsubmit="addBus(event)">
+                    <input type="text" id="busNum" placeholder="Bus Number" required>
+                    <input type="text" id="busRoute" placeholder="Route" required>
+                    <input type="text" id="busDriver" placeholder="Driver Name" required>
+                    <input type="time" id="busDeparture" placeholder="Departure Time" required>
+                    <button type="submit">Add Bus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer boxed-footer" role="contentinfo" aria-label="Footer">
+        <p>&copy; 2026 Smart Campus Assistant. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
