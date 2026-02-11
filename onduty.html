@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>On Duty - Smart Campus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/onduty.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-icon">📚</span> Smart Campus
+        </a>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="teachers.html" class="nav-link">Teachers</a></li>
+                <li><a href="onduty.html" class="nav-link">On Duty</a></li>
+                <li><a href="buses.html" class="nav-link">Buses</a></li>
+                <li><a href="announcements.html" class="nav-link">Announcements</a></li>
+                <li><a href="chat.html" class="nav-link">Chat</a></li>
+                <li id="ondutyLink" style="display:none;"><a href="onduty.html" class="nav-link">On Duty</a></li>
+                <li id="adminLink" style="display:none;"><a href="admin.html" class="nav-link">Admin</a></li>
+                <li id="authBtn"><button class="auth-btn" onclick="openLoginModal()">Login</button></li>
+                <li id="logoutBtn" style="display:none;"><button class="auth-btn logout" onclick="logout()">Logout</button></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>📝 On Duty Request</h1>
+
+    <form class="onduty-form" onsubmit="submitRequest(event)">
+        <input type="text" id="studentName" placeholder="Your Name" required>
+        <input type="text" id="reason" placeholder="Reason" required>
+        <input type="date" id="date" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="requestList" class="request-grid"></div>
+</div>
+
+<footer class="footer boxed-footer">
+    <p>&copy; 2026 Smart Campus Assistant</p>
+</footer>
+
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/onduty.js"></script>
+
+</body>
+</html>

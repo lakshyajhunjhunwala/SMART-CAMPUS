@@ -1,0 +1,45 @@
+.onduty-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.onduty-form input {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.onduty-form button {
+    padding: 0.8rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.request-grid {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.request-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.status {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status.pending { background: #ffc107; color: black; }
+.status.approved { background: #28a745; color: white; }
+.status.rejected { background: #dc3545; color: white; }

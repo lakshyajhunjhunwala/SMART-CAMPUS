@@ -16,6 +16,11 @@ function switchTab(tabName) {
     
     // Highlight button
     event.target.classList.add('active');
+
+    if(tabName === "onduty"){ 
+        loadOnDutyForHOD()
+    };
+
 }
 
 function addAnnouncement(event) {
@@ -120,6 +125,7 @@ function addBus(event) {
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     // Set first tab as active by default
+    loadOnDutyForHOD();
     const firstTabButton = document.querySelector('.tab-button');
     if (firstTabButton) {
         firstTabButton.classList.add('active');
@@ -128,4 +134,63 @@ document.addEventListener('DOMContentLoaded', function() {
     if (firstTab) {
         firstTab.classList.add('active');
     }
+})
+function addTeacher(e) {
+    e.preventDefault();
+
+    let teachers = JSON.parse(localStorage.getItem("teachers") || "[]");
+
+    teachers.push({
+        name: teacherName.value,
+        location: teacherLocation.value,
+        time: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("teachers", JSON.stringify(teachers));
+    e.target.reset();
+}
+
+function loadOnDutyForHOD() {
+    const requests = JSON.parse(localStorage.getItem("onduty") || "[]");
+    const container = document.getElementById("hodRequests");
+    container.innerHTML = "";
+
+    requests.forEach((r, i) => {
+        container.innerHTML += `
+            <div class="request-card">
+                <h3>${r.student}</h3>
+                <p>${r.reason}</p>
+                <p>${r.date}</p>
+                <button onclick="approve(${i})">Approve</button>
+                <button onclick="reject(${i})">Reject</button>
+            </div>
+        `;
+    });
+}
+
+function approve(i) {
+    let requests = JSON.parse(localStorage.getItem("onduty"));
+    requests[i].status = "Approved";
+    localStorage.setItem("onduty", JSON.stringify(requests));
+    loadOnDutyForHOD();
+}
+
+function reject(i) {
+    let requests = JSON.parse(localStorage.getItem("onduty"));
+    requests[i].status = "Rejected";
+    localStorage.setItem("onduty", JSON.stringify(requests));
+    loadOnDutyForHOD();
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user || user.role !== "hod") {
+        alert("Access Denied! HOD login required.");
+        window.location.href = "index.html";
+    }
 });
+
+
+
+
+;

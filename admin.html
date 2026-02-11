@@ -16,13 +16,15 @@
                 <span class="logo-icon">📚</span> Smart Campus
             </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="schedule.html" class="nav-link">Schedule</a></li>
+               <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="schedule.html" class="nav-link active">Schedule</a></li>
                 <li><a href="events.html" class="nav-link">Events</a></li>
+                <li><a href="teachers.html" class="nav-link">Teachers</a></li>
+                <li><a href="onduty.html" class="nav-link">On Duty</a></li>
                 <li><a href="buses.html" class="nav-link">Buses</a></li>
                 <li><a href="announcements.html" class="nav-link">Announcements</a></li>
                 <li><a href="chat.html" class="nav-link">Chat</a></li>
-                <li id="adminLink" style="display:none;"><a href="admin.html" class="nav-link active">Admin</a></li>
+                <li id="adminLink" style="display:none;"><a href="admin.html" class="nav-link">Admin</a></li>
                 <li id="authBtn"><button class="auth-btn" onclick="openLoginModal()">Login</button></li>
                 <li id="logoutBtn" style="display:none;"><button class="auth-btn logout" onclick="logout()">Logout</button></li>
             </ul>
@@ -57,6 +59,9 @@
             <button class="tab-button" onclick="switchTab('schedule')">Schedule</button>
             <button class="tab-button" onclick="switchTab('events')">Events</button>
             <button class="tab-button" onclick="switchTab('buses')">Buses</button>
+            <button class="tab-button" onclick="switchTab('teachers')">Teachers</button>
+            <button class="tab-button" onclick="switchTab('onduty')">On Duty</button>
+
         </div>
 
         <!-- Tab Content -->
@@ -122,6 +127,21 @@
                     <button type="submit">Add Bus</button>
                 </form>
             </div>
+             <div id="teachersTab" class="tab-content">
+                 <h2>Update Teacher Location</h2>
+                <form onsubmit="addTeacher(event)">
+                    <input type="text" id="teacherName" placeholder="Teacher Name" required>
+                    <input type="text" id="teacherLocation" placeholder="Current Location (Room 204...)" required>
+                    <button type="submit">Update Location</button>
+                </form>
+
+                <h3 style="margin-top:20px;">Current Locations</h3>
+                <div id="teachersList"></div>
+            </div> 
+            <div id="ondutyTab" class="tab-content">
+                 <h2>On Duty Approvals</h2>
+                 <div id="hodRequests"></div>
+            </div> 
         </div>
     </div>
 
